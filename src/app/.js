@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
-import Script from 'next/script';
+import { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import Script from "next/script";
 // import Image from 'next/image';
 
 const schema = yup.object().shape({
-  fullName: yup.string().required('Full Name is required'),
-  email: yup.string().email('Invalid email').required('Email is required'),
+  fullName: yup.string().required("Full Name is required"),
+  email: yup.string().email("Invalid email").required("Email is required"),
   avatar: yup
     .string()
-    .url('Invalid URL')
-    .required('Avatar URL is required')
-    .test('is-image', 'URL must be an image', (value) => {
+    .url("Invalid URL")
+    .required("Avatar URL is required")
+    .test("is-image", "URL must be an image", (value) => {
       return /\.(jpeg|jpg|png|gif|bmp|webp)$/i.test(value);
     }),
 });
@@ -31,14 +31,17 @@ export default function Home() {
     watch,
   } = useForm({
     resolver: yupResolver(schema),
-    defaultValues: typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('formData') || '{}') : {},
+    defaultValues:
+      typeof window !== "undefined"
+        ? JSON.parse(localStorage.getItem("formData") || "{}")
+        : {},
   });
 
   const formData = watch();
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('formData', JSON.stringify(formData));
+    if (typeof window !== "undefined") {
+      localStorage.setItem("formData", JSON.stringify(formData));
     }
   }, [formData]);
 
@@ -52,12 +55,12 @@ export default function Home() {
         onLoad={() => {
           const newWidget = window.cloudinary.createUploadWidget(
             {
-              cloudName: 'dwyzvuqer',
-              uploadPreset: 'Avatar Tickets',
+              cloudName: "dwyzvuqer",
+              uploadPreset: "Avatar Tickets",
             },
             (error, result) => {
-              if (!error && result?.event === 'success') {
-                setValue('avatar', result.info.secure_url);
+              if (!error && result?.event === "success") {
+                setValue("avatar", result.info.secure_url);
               }
             }
           );
@@ -66,37 +69,54 @@ export default function Home() {
       />
 
       {!isSubmitted ? (
-        <form onSubmit={handleSubmit(onSubmit)} className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md"
+        >
           {/* Full Name Field */}
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">Full Name</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Full Name
+            </label>
             <input
-              {...register('fullName')}
+              {...register("fullName")}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-              aria-invalid={errors.fullName ? 'true' : 'false'}
+              aria-invalid={errors.fullName ? "true" : "false"}
             />
-            {errors.fullName && <p className="mt-2 text-sm text-red-600">{errors.fullName.message}</p>}
+            {errors.fullName && (
+              <p className="mt-2 text-sm text-red-600">
+                {errors.fullName.message}
+              </p>
+            )}
           </div>
 
           {/* Email Field */}
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">Email</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Email
+            </label>
             <input
               type="email"
-              {...register('email')}
+              {...register("email")}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-              aria-invalid={errors.email ? 'true' : 'false'}
+              aria-invalid={errors.email ? "true" : "false"}
             />
-            {errors.email && <p className="mt-2 text-sm text-red-600">{errors.email.message}</p>}
+            {errors.email && (
+              <p className="mt-2 text-sm text-red-600">
+                {errors.email.message}
+              </p>
+            )}
           </div>
 
           {/* Avatar Field */}
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">Avatar</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Avatar
+            </label>
             <input
-              {...register('avatar')}
+              {...register("avatar")}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-              aria-invalid={errors.avatar ? 'true' : 'false'}
+              aria-invalid={errors.avatar ? "true" : "false"}
             />
             <button
               type="button"
@@ -105,7 +125,11 @@ export default function Home() {
             >
               Upload Image
             </button>
-            {errors.avatar && <p className="mt-2 text-sm text-red-600">{errors.avatar.message}</p>}
+            {errors.avatar && (
+              <p className="mt-2 text-sm text-red-600">
+                {errors.avatar.message}
+              </p>
+            )}
           </div>
 
           <button
@@ -119,11 +143,15 @@ export default function Home() {
         <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
           <h2 className="text-2xl font-bold mb-4">Conference Ticket</h2>
           <div className="space-y-4">
-            <p className="text-lg"><span className="font-semibold">Name:</span> {formData.fullName}</p>
-            <p className="text-lg"><span className="font-semibold">Email:</span> {formData.email}</p>
+            <p className="text-lg">
+              <span className="font-semibold">Name:</span> {formData.fullName}
+            </p>
+            <p className="text-lg">
+              <span className="font-semibold">Email:</span> {formData.email}
+            </p>
             <img
-              src={formData.avatar} 
-              alt="Avatar" 
+              src={formData.avatar}
+              alt="Avatar"
               className="w-32 h-32 rounded-full mx-auto"
             />
           </div>
