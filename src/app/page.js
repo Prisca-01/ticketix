@@ -52,8 +52,8 @@ export default function Home() {
 
   return (
     <>
-      <header className="flex flex-row justify-between py-3 md:px-20">
-        <h2 className="text-teal-700 font-extrabold text-2xl">Ticketix</h2>
+      <header className="flex flex-row justify-between py-3 px-10 md:px-20">
+        <h2 className="text-type font-extrabold text-2xl">Ticketix</h2>
         <div className="nav hidden md:block text-gray-500 space-x-9 font-bold text-lg">
           <Link href="#">Events</Link>
           <Link href="#">About</Link>
@@ -67,63 +67,72 @@ export default function Home() {
       </header>
 
       {/* Ticket Selection */}
-
+      {/* w-[335px] h-[1165px] */}
       <div className="container  p-4 flex flex-col items-center justify-center">
-        <div className="bg-primary border-2 border-border md:w-[700px] md:h-[858px] flex justify-center items-center rounded-3xl">
-          <section className="bg-first w-[604px] h-[682px] flex flex-col p-8 justify-center items-center border-2 border-border rounded-3xl">
-            <div className="selection text-gray-100 text-center md:w-[556px] md:h-[200px] flex flex-col justify-center items-center space-y-2 border-2 border-line rounded-3xl">
-              <h1 className="text-gray-100 text-4xl font-extrabold">
+        <div className="bg-primary border-2 border-border md:w-[700px] md:h-[858px]  flex justify-center items-center rounded-3xl">
+          <section className="bg-first md:w-[604px] md:h-[682px]  flex flex-col p-6 md:p-8 justify-center items-center border-2 border-border rounded-3xl">
+            <div className="selection text-gray-100 text-center md:w-[556px] md:h-[200px] px-6 py-4 flex flex-col justify-center items-center space-y-2 border-2 border-line rounded-3xl">
+              <h1 className="text-gray-100 text-2xl md:text-4xl font-extrabold">
                 Techember Fest ”25
               </h1>
-              <p className="text-gray-100 flex flex-col text-base">
-                Join us for an unforgettable experience at
-                <span>[Event Name]! Secure your spot now.</span>
+              <p className="md:hidden w-[229px] text-gray-100 flex-col text-sm md:text-base mb-8">
+                <span>Join us for an unforgettable</span>{" "}
+                <span>experience at [Event Name]! Secure</span>{" "}
+                <span>your spot now.</span>
               </p>
-              <p className="text-gray-100 text-base space-x-2">
+              <p className="hidden md:block text-gray-100 flex-col text-base">
+                Join us for an unforgettable experience at
+                {" "}<span>[Event Name]! Secure your spot now.</span>
+              </p>
+              <p className="text-gray-100 text-base md:flex space-x-2 md:mt-0">
                 <span>📍 [Event Location]</span>
-                <span>| |</span>
-                <span>March 15, 2025 | 7:00 PM</span>
+                <span className="hidden md:flex">| |</span>
+                <span className="hidden md:flex">March 15, 2025 | 7:00 PM</span>
+              </p>
+              <p className="text-gray-100 text-base md:hidden">
+                March 15, 2025 | 7:00 PM
               </p>
             </div>
-            <div className="bg-line md:h-1 md:w-full mt-8"></div>
+            <div className="bg-line h-1 w-full md:h-1 md:w-full mt-8"></div>
 
             <div className="ticketType text-gray-100 mt-8">
               <p className="mb-2">Select Ticket Type:</p>
-              <div className="flex flex-row gap-x-6 border-2 border-line rounded-3xl p-4 md:w-[556px]">
-                <div className="flex flex-col gap-y-2  md:w-[158px] md:h-[110px] p-3 bg-free border-type border-2 rounded-xl">
+              <div className="flex flex-col md:flex-row gap-6 w-[287px] h-[410px] border-2 border-line rounded-3xl p-4 md:w-[556px] md:h-[142px]">
+                <div className="flex flex-col gap-y-2 w-[255px] md:w-[158px] h-[110px] p-3 bg-free border-type border-2 rounded-xl">
                   <p className="font-bold">Free</p>
                   <p className="text-sm">REGULAR ACCESS</p>
                   <p>20/52</p>
                 </div>
 
-                <div className="flex flex-col gap-y-2  md:w-[158px] md:h-[110px] p-3 border-type border-2 rounded-xl">
+                <div className="flex flex-col gap-y-2 w-[255px]  md:w-[158px] h-[110px] p-3 border-type border-2 rounded-xl">
                   <p className="font-bold">$150</p>
                   <p>VIP ACCESS</p>
                   <p>20/52</p>
                 </div>
 
-                <div className="flex flex-col gap-y-2  md:w-[158px] md:h-[110px] p-3 border-type border-2 rounded-xl">
+                <div className="flex flex-col gap-y-2 w-[255px]  md:w-[158px] h-[110px] p-3 border-type border-2 rounded-xl">
                   <p className="font-bold">$150</p>
                   <p>VVIP ACCESS</p>
                   <p>20/52</p>
                 </div>
               </div>
-              <div className="mt-8 flex flex-col bg-select">
+              <div className="mt-8 flex flex-col ">
                 <label className="mb-2">Number of Tickets:</label>
-                <input
-                  type="number"
-                  placeholder="Tickets?"
-                  min={1}
-                  className="md:w-full md:h-[48px] bg-primary px-3 outline-none border-2 border-line rounded-lg"
-                ></input>
+                <select className="md:w-full h-[48px] bg-primary text-white px-2 outline-none border-2 border-line rounded-lg">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
               </div>
             </div>
 
-            <div className="buttons flex md:flex-row flex-col md:gap-x-6 mt-8">
-              <button className="md:w-[266px] md:h-[48px] text-button text-center border-2 border-button rounded-lg">
+            <div className="buttons flex md:flex-row flex-col gap-y-2 md:gap-y-0 md:gap-x-6 mt-8 md:w-full w-[287px]">
+              <button className="md:w-[266px] w-full h-[48px] text-button text-center border-2 border-button rounded-lg">
                 Cancel
               </button>
-              <button className="md:w-[266px] md:h-[48px] text-white text-center bg-button rounded-lg">
+              <button className="md:w-[266px] w-full h-[48px] text-white text-center bg-button rounded-lg">
                 Next
               </button>
             </div>
@@ -152,9 +161,9 @@ export default function Home() {
         />
 
         <div className="bg-primary border-2 border-border md:w-[700px] md:h-[1083px] flex justify-center items-center rounded-3xl">
-          <section className="bg-first w-[604px] h-[907px] flex flex-col p-8 justify-center items-center border-2 border-border rounded-3xl">
+          <section className="bg-first w-[335px] md:w-[604px] md:h-[907px] flex flex-col p-6 md:p-8 justify-center items-center border-2 border-border rounded-3xl">
             {/* Avatar Upload Section */}
-            <div className="bg-select w-[556px] text-gray-100 mt-8 border-2 border-line rounded-lg p-4">
+            <div className="bg-select md:w-[556px] text-gray-100 mt-8 border-2 border-line rounded-lg p-4">
               <p className="mb-4 text-lg font-semibold">
                 Upload Profile Photo:
               </p>
@@ -214,6 +223,7 @@ export default function Home() {
                   <label className="block text-gray-100 text-sm font-medium mb-2">
                     Enter your email
                   </label>
+
                   <input
                     type="email"
                     {...register("email")}
@@ -263,12 +273,12 @@ export default function Home() {
       {/* Ticket Section */}
       {isSubmitted && (
         <div className="container p-4 flex flex-col items-center justify-center">
-          <div className="bg-primary border-2 border-border md:w-[700px] md:h-[858px] flex justify-center items-center rounded-3xl">
-            <section className="flex flex-col p-8 justify-center items-center">
-              <h2 className="text-3xl font-bold  text-gray-100 text-center">
+          <div className="bg-primary border-2 border-border md:w-[700px] md:h-[858px] w-[335px] flex justify-center items-center rounded-3xl">
+            <section className="flex flex-col p-6 md:p-8 justify-center items-center">
+              <h2 className="md:text-3xl text-2xl font-bold  text-gray-100 text-center">
                 Your Ticket is Booked!
               </h2>
-              <p className="text-gray-100 mb-8">
+              <p className="text-gray-100 mb-8 w-[240px] text-center text-sm md:text-base">
                 Check your email for a copy or you can download
               </p>
 
@@ -292,8 +302,8 @@ export default function Home() {
                     <h3 className="text-2xl font-bold">
                       Techember Fest &#39;25
                     </h3>
-                    <p className="text-sm">📍 04 Rumens road, Ikoyi, Lagos</p>
-                    <p className="text-sm">📅 March 15, 2025 | 7:00 PM</p>
+                    <p className="text-xs md:text-sm">📍 04 Rumens road, Ikoyi, Lagos</p>
+                    <p className="text-xs md:text-sm">📅 March 15, 2025 | 7:00 PM</p>
                   </div>
 
                   {/* Avatar */}
@@ -306,7 +316,7 @@ export default function Home() {
                   </div>
 
                   {/* Info Box */}
-                  <div className="absolute left-[135px] top-72 bg-select/50 backdrop-blur-sm p-4 rounded-lg mb-6 w-[232px] h-[160px]">
+                  <div className="absolute left-[115px] top-72 bg-select/50 backdrop-blur-sm p-4 rounded-lg mb-6 ">
                     {/* Name & Email */}
                     <div className="flex justify-between items-center border-b border-line">
                       <div>
@@ -315,7 +325,7 @@ export default function Home() {
                       </div>
                       <div className="w-px h-8 bg-line" />
                       <div>
-                        <p>Email</p>
+                        <p className="text-xs">Email</p>
                         <p className="text-xs font-bold">{formData.email}</p>
                       </div>
                     </div>
@@ -335,8 +345,8 @@ export default function Home() {
                     {/* Additional Info */}
                     {formData.notes && (
                       <div>
-                        <p className="font-bold mb-2">Additional Info:</p>
-                        <p className="text-sm">{formData.notes}</p>
+                        <p className="text-xs">Additional Info:</p>
+                        <p className="text-xs font-bold">{formData.notes}</p>
                       </div>
                     )}
                   </div>
@@ -356,15 +366,15 @@ export default function Home() {
               </div>
 
               {/* Action Buttons */}
-              <div className="buttons flex md:flex-row flex-col md:gap-x-6 mt-8">
-                <button
-                  className="md:w-[266px] md:h-[48px] text-button text-center border-2 border-button rounded-lg hover:bg-select transition-colors"
+              <div className="buttons flex md:flex-row flex-col gap-y-2 md:gap-y-0 md:gap-x-6 mt-8 md:w-full w-[287px]">
+              <button
+                  className="md:w-[266px] w-full h-[48px] text-button text-center border-2 border-button rounded-lg hover:bg-select transition-colors"
                   onClick={() => setIsSubmitted(false)}
                 >
                   Book Another Ticket
                 </button>
                 <button
-                  className="md:w-[266px] md:h-[48px] text-white text-center bg-button rounded-lg hover:bg-button/90 transition-colors"
+                  className="md:w-[266px] w-full h-[48px] text-white text-center bg-button rounded-lg hover:bg-button/90 transition-colors"
                   onClick={() => {
                     // Implement download functionality
                     const ticketElement =
