@@ -29,7 +29,7 @@ export default function TicketSelection({ currentStep, onNext }) {
         />
         <section className="bg-first md:w-[604px] md:h-[682px] flex flex-col p-8 justify-center items-center border-2 border-border rounded-3xl">
           <div className="selection text-gray-100 text-center md:w-[556px] md:h-[200px] px-6 py-4 flex flex-col justify-center items-center space-y-2 border-2 border-line rounded-3xl">
-            <h1 className="text-gray-100 text-4xl md:text-4xl font-extrabold font-roadrage">
+            <h1 className="text-gray-100 text-3xl md:text-4xl font-extrabold font-roadrage">
               Techember Fest ”25
             </h1>
             <p className="md:hidden w-[229px] text-gray-100 flex-col text-sm md:text-base mb-8">

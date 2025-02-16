@@ -21,7 +21,7 @@ export default {
       },
       fontFamily:{
         roboto: ["Roboto", "sans-serif"],
-        roadrage: ["Road Rage", "cursive"],
+        roadrage: ["Road Rage", "Roboto", "sans-serif"],
         header: [" JejuMyeongjo", "serif"],
         alatsi: ["Alatsi", "sans-serif"],
       }
