@@ -22,7 +22,7 @@ export default function Home() {
   const [formData, setFormData] = useState(() => {
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("formData");
-      return saved ? JSON.parse(saved) : INITIAL_DATA; // Ensure a fallback to INITIAL_DATA
+      return saved ? JSON.parse(saved) : INITIAL_DATA;
     }
     return INITIAL_DATA;
   });
@@ -40,7 +40,7 @@ export default function Home() {
 
   return (
     <>
-      <header className="flex flex-row justify-between items-center py-3 px-10 md:px-20 font-header">
+      <header className="flex flex-row justify-between items-center py-3 px-6 md:px-20 font-header">
         <Image src="/logo.svg" width={100} height={100} alt="Ticketix" />
         <div className="nav hidden md:block text-gray-500 space-x-9 font-bold text-lg">
           <Link href="#">Events</Link>
