@@ -19,6 +19,12 @@ export default {
         select: "#052228",
         button: "#24A0B5",
       },
+      fontFamily:{
+        roboto: ["Roboto", "sans-serif"],
+        roadrage: ["Road Rage", "cursive"],
+        header: [" JejuMyeongjo", "serif"],
+        alatsi: ["Alatsi", "sans-serif"],
+      }
     },
   },
   plugins: [],
