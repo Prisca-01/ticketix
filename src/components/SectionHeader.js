@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 export default function SectionHeader({ activeStep, currentStep, title }) {
   return (
     <div className="mb-6 pt-6 px-2 md:px-0">
-      <div className="flex items-center flex-row mb-1 gap-32  md:gap-80 ">
+      <div className="flex items-center flex-row mb-1 gap-16  md:gap-80">
         {/* Section Title */}
         <h3 className="text-gray-100 md:text-3xl text-2xl font-semibold flex flex-row font-header">
           {title}

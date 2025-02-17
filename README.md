@@ -16,9 +16,29 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+app/page.js: Main entry point for the application.
+
+components/: Reusable UI components.
+
+styles/: Global and component-specific styles.
+
+public/: Static assets such as images.
+
+utils/: Helper functions and utilities.
+
+## Features
+
+Built with Next.js for server-side rendering and static generation.
+
+Uses next/font for optimized font loading.
+
+Cloudinary integration for image uploads.
+
+Form validation using react-hook-form and yup.
+
+Motion animations powered by framer-motion.
 
 ## Learn More
 

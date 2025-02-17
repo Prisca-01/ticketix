@@ -47,7 +47,7 @@ export default function Home() {
           <Link href="#">About Project</Link>
         </div>
         <div className="flex flex-row justify-center items-center gap-2 bg-slate-200 p-2 w-[169px] rounded-xl text-gray-900">
-          <Link href="#" className="text-base">
+          <Link href="/my-tickets" className="text-base">
             MY TICKETS
           </Link>
           <FaLongArrowAltRight />

@@ -10,11 +10,18 @@ export default function TicketConfirmation({
   formData,
   onBookAnother,
 }) {
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     localStorage.removeItem("formData");
+  //   }
+  // }, []);
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.removeItem("formData");
+    if (typeof window !== "undefined" && formData) {
+      const savedTickets = JSON.parse(localStorage.getItem("tickets")) || [];
+      localStorage.setItem("tickets", JSON.stringify([...savedTickets, formData]));
     }
-  }, []);
+  }, [formData]);
+  
 
   const handleDownload = () => {
     const element = document.getElementById("ticket-container");
